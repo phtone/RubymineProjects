@@ -1,0 +1,52 @@
+<h1>Listing items</h1>
+
+<style type="text/css">
+  .title {
+      font-size: 24pt;
+      font-weight: bold;
+      margin-bottom: 16px;
+  }
+      .title a, a:hover {
+          color: maroon;
+      }
+
+      .description {
+          margin-bottom: 16px;
+      }
+
+      .price {
+          color: maroon;
+          font-weight: 800;
+          font-size: 14px;
+          text-align: right;
+      }
+
+</style>
+
+<%= link_to "Your Card" %>
+
+<table>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to image_tag(item.image_url), item %></td>
+        <td>
+        <div class="title"><%= link_to item.tittle, item %></div>
+        <div class="description"><%= item.description %></div>
+        <div class="links"><%= link_to 'Show', item %> | <%= link_to 'Edit', edit_item_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        <div class="price"><%= number_to_currency item.price, :unit => '$' %></div>
+        </td>
+      </tr>
+
+  <tr><td colspan="2">
+    <hr/>
+   </td> </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
