@@ -23,10 +23,9 @@
 
 </style>
 
-<%= link_to "Your Card" %>
+<%= link_to "Your Card", :controller => :cart, :action => :index %>
 
 <table>
-
   <tbody>
     <% @items.each do |item| %>
       <tr>
@@ -36,10 +35,11 @@
         <div class="description"><%= item.description %></div>
         <div class="links"><%= link_to 'Show', item %> | <%= link_to 'Edit', edit_item_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         <div class="price"><%= number_to_currency item.price, :unit => '$' %></div>
+         <%= button_to "Add to Card", :controller => :cart, :action => :add, :id => item %>
         </td>
       </tr>
-
-  <tr><td colspan="2">
+  <tr>
+    <td colspan="2">
     <hr/>
    </td> </tr>
 

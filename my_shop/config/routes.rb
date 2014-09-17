@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'card/Index'
 
-  get 'card/add'
+  get 'cart/index'
+
+  #get 'card/add'
 
   resources :items
+
+  match  ':controller/:action/:id', via: [:get, :post]
+
+  #match ':controller/:action:/id', :via => get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

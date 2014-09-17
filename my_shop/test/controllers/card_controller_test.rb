@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CardControllerTest < ActionController::TestCase
   test "should get Index" do
-    get :Index
+    get :index
     assert_response :success
   end
 
