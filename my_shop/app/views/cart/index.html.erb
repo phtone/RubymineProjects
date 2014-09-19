@@ -1,2 +1,11 @@
-<h1>Your card</h1>
+<h1>Your Cart</h1>
 
+<table>
+
+  <% @cart.each do |id, quantity| %>
+  <% item = Item.find(id) %>
+    <tr>
+      <td><%= item.tittle %><%= quantity %></td>
+    </tr>
+  <% end %>
+</table>

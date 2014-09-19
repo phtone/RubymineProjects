@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'cart/index'
 
-  #get 'card/add'
+  post 'cart/add'
 
   resources :items
 
