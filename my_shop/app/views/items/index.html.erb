@@ -29,13 +29,13 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to image_tag(item.image_url), item %></td>
+        <td><%= link_to image_tag(item.image_url, width: 150), item %></td>
         <td>
         <div class="title"><%= link_to item.tittle, item %></div>
         <div class="description"><%= item.description %></div>
-        <div class="links"><%= link_to 'Show', item %> | <%= link_to 'Edit', edit_item_path(item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        <div class="links"><%= link_to 'Показать', item %> | <%= link_to 'Редактировать', edit_item_path(item) %> | <%= link_to 'Удалить', item, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         <div class="price"><%= number_to_currency item.price, :unit => '$' %></div>
-         <%= button_to "Add to Card", :controller => :cart, :action => :add, :id => item %>
+         <%= button_to "Добавить в корзину", :controller => :cart, :action => :add, :id => item %>
         </td>
       </tr>
   <tr>
@@ -49,4 +49,4 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'Добавить товар', new_item_path %>
