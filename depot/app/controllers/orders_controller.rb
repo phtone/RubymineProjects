@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to store_url, notice:'Thank you for your order.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
-        @cart = current_cart
+        #@cart = current_cart
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
